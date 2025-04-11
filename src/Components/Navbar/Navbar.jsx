@@ -9,7 +9,7 @@ const Navbar = () => {
             <ul className="flex justify-center items-center tracking-[2px] mt-[20px]">
                 <li className="px-[22px] py-[7px] mx-[10px] text-[14px] uppercase font-semibold hover:text-gray-400"><Link to="/#">Trang Chủ</Link></li>
                 <li className="item-navbar py-[7px] lg:px-[15px] xl:px-[22px]  xl:mx-[15px] text-[14px] uppercase font-semibold relative hover:text-gray-400">
-                    <Link to="/keycap_bo">Keycap bộ</Link>
+                    <Link to="/keycap_bo">Keycap bộ1</Link>
                     <ul className="navbar absolute bg-white w-[220px] left-[-10px] top-9 z-20  px-[20px] py-[15px] rounded-lg shadow-2xl transition-all duration-300 ease-in-out hover:shadow-2xl ">
                         <div className="grid grid-cols-1 gap-y-5">
                             <li className="text-[12px] uppercase font-semibold text-gray-700 hover:text-black hover:font-bold transition duration-200 ease-in-out ">

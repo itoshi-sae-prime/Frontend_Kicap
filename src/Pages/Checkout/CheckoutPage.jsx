@@ -27,7 +27,7 @@ const Checkout = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("/api/OrderKicap", formData);
+            const response = await axios.post("/orders/orderKicap", formData);
             console.log(formData);
             console.log(response.data);
             alert("Email sent successfully!");

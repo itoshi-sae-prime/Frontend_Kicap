@@ -23,7 +23,7 @@ const ListPost = ({ data, title }) => {
                     // pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]}
                 >
-                    {data.map((item) => (
+                    {data?.map((item) => (
                         <SwiperSlide key={item.id}>
                             <Card data={item} sizeImg={"w-full h-[350px]"} />
                         </SwiperSlide>
