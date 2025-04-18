@@ -8,7 +8,6 @@ import "../Navbar/navbar.css";
 const NavbarMB = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isDropdown, setIsDropdown] = useState(false);
-    console.log(Data1);
     return (
         <nav>
             <div className="lg:hidden">

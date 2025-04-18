@@ -1,5 +1,5 @@
 import ProductList from "./ProductList";
 const ChuotPage = (props) => {
-    return <ProductList apiUrl={`https://backend-kicap.onrender.com/api/products/chuot`} />;
+    return <ProductList apiUrl={`products/chuot`} />;
 };
 export default ChuotPage;

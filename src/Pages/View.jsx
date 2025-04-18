@@ -25,14 +25,14 @@ export const View = () => {
             path: '/',
             element: <LayoutPD />,
             children: [
-                { path: 'keycap_bo', element: <KCPage /> },
+                { path: 'keycap_bo/', element: <KCPage /> },
                 { path: 'banphimco', element: <BPCPage /> },
                 { path: 'chuot', element: <ChuotPage /> },
                 { path: 'modsphim', element: <ModsPage /> },
                 { path: 'sanpham/all', element: <AllPage /> }
             ],
         },
-        { path: '/:id', element: <PDPage /> },
+        { path: '/:slug', element: <PDPage /> },
         { path: '/blog', element: <Blog /> },
         { path: '/gioi-thieu', element: <GTPage /> },
         { path: '/lien-he', element: <LHPage /> },

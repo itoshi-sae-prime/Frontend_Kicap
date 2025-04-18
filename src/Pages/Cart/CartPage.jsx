@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const CartPage = () => {
     const cart = useSelector((state) => state.allCart);
+    console.log(cart.cart);
     const dispatch = useDispatch();
     console.log(typeof (cart.cart));
     const handlePlus = (e) => {

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { addCard } from "../../Redux/Slice/cardSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import slugify from "../../utils/slugify";
 const Card = ({ data, sizeImg }) => {
     const [isHovered, setIsHovered] = useState(false);
     const dispatch = useDispatch();
     const handleAddToCart = (e) => {
-
         dispatch(addCard(e));
         const alertDiv = document.createElement("div");
         alertDiv.innerText = "✅ Đã thêm vào giỏ hàng!";
@@ -30,8 +30,8 @@ const Card = ({ data, sizeImg }) => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <Link to={`/product/${data.id}`} className="block">
-                    <div className={`${sizeImg} flex justify-center datas-center overflow-hidden rounded-xl `}>
+                <Link to={`/${slugify(data.title)}`} state={{ category: data.category }} className="block">
+                    <div className={`${sizeImg} flex justify-center items-center overflow-hidden rounded-xl `}>
                         <img
                             src={isHovered ? data.images[4] : data.images[0]}
                             alt={data.title || "Sản phẩm"}

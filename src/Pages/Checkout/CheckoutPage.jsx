@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 const Checkout = () => {
+    const cart = useSelector((state) => state.allCart);
     const [formData, setFormData] = useState({
         email: "",
         fullName: "",
@@ -23,13 +24,13 @@ const Checkout = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
     const [place, setPlace] = useState("shipper");
-    const cart = useSelector((state) => state.allCart);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("/orders/orderKicap", formData);
+            const response = await axios.post("orders/orderKicap", formData);
             console.log(formData);
-            console.log(response.data);
+            console.log("loi", response.data);
             alert("Email sent successfully!");
         }
         catch (err) {
