@@ -9,7 +9,7 @@ const Home = () => {
         <div>
             <Slide />
             <div className="container">
-                <FlashSale />
+                {/* <FlashSale /> */}
                 <div className="px-[30px] mx-auto">
                     <Post />
                 </div>

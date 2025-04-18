@@ -72,7 +72,7 @@ const Slide = () => {
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 bg-white">
                     {
                         [...Array(3)].map((_, i) => (
-                            <button
+                            <button onClick={() => console.log(`Clicked dot ${i + 1}`)}
                                 key={i}
                                 className="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition"
                             ></button>

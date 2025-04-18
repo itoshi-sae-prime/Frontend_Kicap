@@ -23,7 +23,7 @@ const TinTuc = () => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {Productpic.map((item) => (
-                <div key={item.id} className="bg-white rounded-xl overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <div key={item.title} className="bg-white rounded-xl overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <img className="w-full h-48 object-cover" src={item.images} alt={item.title} />
 
                     <div className="p-4 border-b-2">
@@ -38,7 +38,6 @@ const TinTuc = () => {
                 </div>
             ))}
         </div>
-
     )
 }
 export default TinTuc;
