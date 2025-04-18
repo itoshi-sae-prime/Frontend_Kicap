@@ -7,7 +7,7 @@ const TinTuc = () => {
             try {
                 await axios({
                     method: 'GET',
-                    url: `posts/blog`,
+                    url: `https://backend-kicap.onrender.com/api/posts/blog`,
                 }).then((res) => {
                     setProductPic(res.data)
                     console.log(res.data)
