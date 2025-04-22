@@ -32,7 +32,7 @@ const PDPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`/orders/sendEvalute`, form);
+            const res = await axios.post(`https://backend-kicap.onrender.com/orders/sendEvalute`, form);
             console.log("Dữ liệu đã được gửi thành công:", res.data);
             const alertDiv = document.createElement("div");
             alertDiv.innerText = "✅ Đã gửi đánh giá thành công!";
