@@ -14,7 +14,7 @@ const Blog = () => {
     const getBlog = async (page) => {
         await axios({
             method: 'GET',
-            url: `/post`,
+            url: `https://backend-kicap.onrender.com/post`,
         }).then((res) => {
             console.log(res)
             setBlog(res.data)
