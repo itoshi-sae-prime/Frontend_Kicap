@@ -73,7 +73,7 @@ const PDPage = () => {
     useEffect(() => {
         const getKeycap = async () => {
             try {
-                const res = await axios.get(`/products/${category}/${slug}`);
+                const res = await axios.get(`https://backend-kicap.onrender.com/api/products/${category}/${slug}`);
                 setKeycap(res.data);
             } catch (error) {
                 console.log("Lỗi khi lấy chi tiết sản phẩm:", error);
