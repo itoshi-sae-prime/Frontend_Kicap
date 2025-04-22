@@ -17,6 +17,7 @@ import KCPage from "./ProductPage/KicapPage";
 import ChuotPage from "./ProductPage/Chuot";
 import ModsPage from "./ProductPage/Modsphim";
 import AllPage from "./ProductPage/All";
+import Register from "./Login/Register";
 export const View = () => {
     const location = useLocation(); // Lấy đường dẫn hiện tại
     const element = useRoutes([
@@ -39,18 +40,20 @@ export const View = () => {
         { path: '/chinh-sach-bao-hanh', element: <CSBHPage /> },
         { path: '/chinh-sach-doi-tra', element: <CSDTPage /> },
         { path: '/login', element: <Login /> },
+        { path: '/register', element: <Register /> },
         { path: '/cart', element: <CartPage /> },
         { path: '/checkout', element: <Checkout /> }, // Checkout riêng biệt
     ]);
 
     return (
         <>
-            {/* Nếu không phải trang checkout thì hiển thị Header & Footer */}
-            {location.pathname !== "/checkout" && <Header />}
-            <div className="container">
-                {element}
-            </div >
-            {location.pathname !== "/checkout" && <Footer />}
+            <div className="">
+                {location.pathname !== "/checkout" && <Header />}
+                <div className="container">
+                    {element}
+                </div >
+                {location.pathname !== "/checkout" && <Footer />}
+            </div>
         </>
     );
 }

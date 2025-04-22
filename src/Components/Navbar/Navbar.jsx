@@ -5,7 +5,7 @@ import { Data1 } from '../../data/Navbar'
 const Navbar = () => {
     return (
         <div className="">
-            <ul className="flex justify-center items-center tracking-[2px] mt-[20px]">
+            <ul className="flex justify-center items-center tracking-[2px] mt-[10px]">
                 <li className="px-[22px] py-[7px] mx-[10px] text-[14px] uppercase font-semibold hover:text-gray-400"><Link to="/#">Trang Chủ</Link></li>
                 <li className="item-navbar py-[7px] lg:px-[15px] xl:px-[22px]  xl:mx-[15px] text-[14px] uppercase font-semibold relative hover:text-gray-400">
                     <Link to="/keycap_bo">Keycap bộ</Link>

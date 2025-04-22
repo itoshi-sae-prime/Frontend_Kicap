@@ -51,7 +51,7 @@ const ProductList = ({ apiUrl }) => {
                     </div>
                 </div>
             ) : (
-                <div className="grid grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-x-2 gap-y-3">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-2 gap-y-3">
                     {filteredData.map((item, ind) => (
                         <Card key={ind} data={item} sizeImg="w-full h-full" />
                     ))}

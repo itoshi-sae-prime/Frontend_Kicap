@@ -23,7 +23,7 @@ const LayoutPD = () => {
         <div className="container mx-auto">
             <div className="w-full h-[350px] grid place-items-center mb-[20px] pt-[7px]">
                 <img className="w-full h-[350px] object-cover" src="https://bizweb.dktcdn.net/100/436/596/collections/n40pqa2hhof61.jpg?v=1631205634610" alt="" />
-                <div className="w-[100%] absolute text-white container">
+                <div className="w-[100%] absolute text-white container pl-[40px]">
                     <h1 className="text-[26px] font-medium leading-[28px] tracking-widest mb-[10px]">KEYCAP BỘ</h1>
                     <p className="">
                         Những bộ keycaps độc đáo nhất giúp chiếc bàn phím của bạn trở lên khác biệt và đầy cảm hứng.</p>

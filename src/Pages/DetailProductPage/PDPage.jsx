@@ -47,8 +47,25 @@ const PDPage = () => {
             document.body.appendChild(alertDiv);
             setForm({ name: "", email: "", phone: "", message: "" });
             setSendRate(!sendEvaluat);
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 2000);
         } catch (error) {
-            console.error("Lỗi khi gửi dữ liệu:", error);
+            console.error("Lỗi khi gửi dữ liệu:", error.response.data);
+            const alertDiv = document.createElement("div");
+            alertDiv.innerText = "❌ Đã xảy ra lỗi khi gửi đánh giá!";
+            alertDiv.style.position = "fixed";
+            alertDiv.style.top = "90px";
+            alertDiv.style.right = "20px";
+            alertDiv.style.padding = "10px 20px";
+            alertDiv.style.background = "red";
+            alertDiv.style.color = "white";
+            alertDiv.style.borderRadius = "5px";
+            alertDiv.style.zIndex = "1000";
+            document.body.appendChild(alertDiv);
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 2000);
             // Có thể hiển thị thông báo lỗi cho người dùng
         }
     };
@@ -200,8 +217,7 @@ const PDPage = () => {
                     </div>
                 )
             }
-            <div className="w-[1140px] mx-auto gap-x-[10px] mt-[5px] ">
-
+            <div className="container mx-auto gap-x-[10px] mt-[5px]">
                 <div className="flex justify-start items-center border-y border-y-1 my-[10px] py-[10px] w-full">
                     <Link to="/" className="px-[10px] text-[14px]">Trang chủ</Link>
                     <div className="pt-[5px]"><MdNavigateNext /></div>
@@ -209,22 +225,37 @@ const PDPage = () => {
                     <div className="pt-[5px]"><MdNavigateNext /></div>
                     <Link to={`/${keycap.title}`} className="px-[10px] text-[14px]">{keycap.title}</Link>
                 </div>
-                <div className="grid grid-cols-1 gap-x-5 mt-[30px]">
-                    <div key={keycap.tittle} className="flex space-x-5">
+                <div className="grid grid-cols-1 gap-x-5 lg:mt-[20px]">
+                    <div key={keycap.tittle} className="lg:flex md:grid md:grid-cols-1">
                         {/* Product Image Section */}
-                        <div className="w-full">
-                            <div className="w-full h-full">
-                                <img className="w-full h-full object-cover" src={`https:${keycap.images?.[0]}`} alt={keycap.title} />
+                        <div className="w-full ">
+                            {/* Ảnh chính */}
+                            <img
+                                className="w-full h-[600px] object-contain"
+                                src={keycap.images?.[0]?.startsWith("http") ? keycap.images[0] : `https:${keycap.images?.[0]}`}
+                                alt={keycap.title}
+                            />
+
+                            {/* Ảnh nhỏ bên dưới */}
+                            <div className="grid grid-cols-5 justify-center gap-2 overflow-x-auto max-h-[100px] mt-2 p-2">
+                                {keycap.images?.map((image, index) => (
+                                    <img
+                                        key={index}
+                                        className="w-full h-[90px] object-contain border border-white hover:border-yellow-300 transition duration-200"
+                                        src={image?.startsWith("http") ? image : `https:${image}`}
+                                        alt={`${keycap.title} ${index + 1}`}
+                                    />
+                                ))}
                             </div>
                         </div>
+
                         {/* Product Details Section */}
-                        <div className="w-full">
+                        <div className="w-full ">
                             <div className="w-full h-auto grid gap-y-2">
-                                <div className="grid gap-y-1">
-                                    <div className="text-[26px] leading-[29px] font-semibold uppercase tracking-wider">{keycap.title}</div>
-                                    <div className="text-[12px] uppercase tracking-[1.2px] font-[600]">SKU: <strong>PNV960</strong></div>
-                                    <div className="text-[12px] uppercase tracking-[1.2px] flex font-[600]">Thương hiệu: <p className="text-red-500 px-[5px] font-semibold">CMK</p></div>
-                                    <div className="flex">
+                                <div className="grid lg:gap-y-1 gap-y-3 justify-center lg:justify-start items-center">
+                                    <div className="text-[26px] leading-[29px] font-semibold uppercase tracking-wider py-1">{keycap.title}</div>
+
+                                    <div className="flex justify-center lg:justify-start items-center gap-x-2">
                                         <CiStar className="" style={{ fontSize: "20px" }} onClick={ChoiceStart} />
                                         <CiStar className="" style={{ fontSize: "20px" }} />
                                         <CiStar className="" style={{ fontSize: "20px" }} />
@@ -233,45 +264,47 @@ const PDPage = () => {
                                         <div className="text-green-400 ml-[10px]">Viết đánh giá của bạn</div>
                                     </div>
                                 </div>
-                                <div className="grid gap-y-1">
+                                <div className="grid justify-center lg:justify-start gap-y-1">
                                     {/* Pricing Section */}
                                     <div className="flex items-center">
                                         <div className="text-[24px] font-semibold inline-block">{keycap.price}</div>
                                         {keycap.sale_price &&
                                             <div className="flex">
-                                                <p className="text-[15px] pl-[15px] inline-block pt-[2px]">Giá thị trường:</p>
+                                                <p className="text-[15px] pl-[15px] inline-block pt-[2px] font-semibold">Giá thị trường:</p>
                                                 <p className="text-[20px] pl-[10px] text-gray-400 line-through">{keycap.sale_price}</p>
                                             </div>
                                         }
                                     </div>
 
                                     {/* Discount & Availability Section */}
-                                    <div className="text-[14px] font-[600] flex">
-                                        <p className="text-[14px] font-[600]">Tiết kiệm:</p>
-                                        {
-                                            keycap?.sale_price && keycap?.price ? (
-                                                <p className="inline-block px-[5px] text-black font-extrabold">
-                                                    {(
-                                                        Number(keycap.sale_price.replace(/[₫.]/g, "")) -
-                                                        Number(keycap.price.replace(/[₫.]/g, ""))
-                                                    ).toLocaleString("vi-VN")}₫
-                                                </p>
-                                            ) : (
-                                                <p className="inline-block px-[5px] text-black font-extrabold">
-                                                    Đang cập nhật
-                                                </p>
-                                            )
-                                        }
-                                    </div>
-                                    <div className="text-[14px] font-[600]">
-                                        Tình trạng: <p className="inline-block px-[5px] text-red-500 font-[500]">Còn hàng</p>
-                                    </div>
+                                    <div className="flex lg:block justify-between items-center">
+                                        <div className="text-[14px] font-[600] flex">
+                                            <p className="text-[14px] font-[600]">Tiết kiệm:</p>
+                                            {
+                                                keycap?.sale_price && keycap?.price ? (
+                                                    <p className="inline-block px-[5px] text-black font-extrabold">
+                                                        {(
+                                                            Number(keycap.sale_price.replace(/[₫.]/g, "")) -
+                                                            Number(keycap.price.replace(/[₫.]/g, ""))
+                                                        ).toLocaleString("vi-VN")}₫
+                                                    </p>
+                                                ) : (
+                                                    <p className="inline-block px-[5px] text-black font-extrabold">
+                                                        Đang cập nhật
+                                                    </p>
+                                                )
+                                            }
+                                        </div>
+                                        <div className="text-[14px] font-[600]">
+                                            Tình trạng: <p className="inline-block px-[5px] text-red-500 font-[500]">Còn hàng</p>
+                                        </div>
 
+                                    </div>
                                 </div>
                                 {/* Rating Section */}
 
                                 {/* Quantity Section */}
-                                <div className="flex">
+                                <div className="flex justify-center lg:justify-start items-center gap-x-2">
                                     <div className="inline-block mt-[12px] font-[600]">
                                         Số lượng:
                                         <div className="inline-block border-1 ml-[20px]">
@@ -285,7 +318,7 @@ const PDPage = () => {
                                 {/* Purchase Section */}
                                 <button
                                     onClick={() => handleAddToCart(keycap)}
-                                    className="w-[60%] bg-black text-white mt-[15px] py-[5px] font-[500] hover:bg-gray-300 transition-colors duration-300"
+                                    className="w-full lg:w-[60%] bg-black text-white mt-[15px] py-[5px] font-[500] hover:bg-gray-300 transition-colors duration-300"
                                 >
                                     <div className="hover:bg-gray-300 transition-colors duration-300 hover:text-black">
                                         <span className="uppercase pt-[5px]">Thêm vào giỏ hàng</span>
@@ -379,7 +412,7 @@ const PDPage = () => {
                         </div>
                     </div>
                 }
-                <div className="py-[30px]">
+                <div className="py-[30px] hidden lg:block">
                     <div className="uppercase my-[30px] text-center text-[30px] tracking-wider">Sản phẩm <strong>liên quan</strong></div>
                     <TinTuc />
                 </div>

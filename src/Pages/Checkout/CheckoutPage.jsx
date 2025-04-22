@@ -29,15 +29,23 @@ const Checkout = () => {
         e.preventDefault();
         try {
             const response = await axios.post("orders/orderKicap", formData);
-            console.log(formData);
-            console.log("loi", response.data);
-            alert("Email sent successfully!");
+            console.log("Form submitted:", formData);
+            alert("Đặt hàng thành công!");
+        } catch (err) {
+            if (err.response && err.response.status === 400) {
+                const errors = err.response.data.errors;
+                if (Array.isArray(errors)) {
+                    // Hiển thị tất cả lỗi trong alert
+                    const errorMessages = errors.map(error => `• ${error.msg}`).join("\n");
+                    alert("\n" + errorMessages);
+                } else {
+                    alert("Có lỗi xảy ra, vui lòng thử lại.");
+                }
+            } else {
+                alert("Lỗi kết nối máy chủ.");
+            }
         }
-        catch (err) {
-            console.log(err);
-            alert("Error sending email.");
-        }
-    }
+    };
     useEffect(() => {
         console.log("Cart updated:", cart);
         setFormData((prevData) => ({

@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import NavbarMB from "../Navbar/Navbar_Mb";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 const Header = () => {
     const { cart } = useSelector((state) => state.allCart);
+    const [search, setSearch] = useState([]);
     console.log(useSelector((state) => state.allCart));
     return (
         <div className="container">

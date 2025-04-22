@@ -33,9 +33,9 @@ const Slide = () => {
                     className="w-full h-full rounded-lg"
                     grabCursor={true}
                     spaceBetween={0}
-                    loop={true}
-                    speed={1000}
-                    autoplay={{ delay: 3000, disableOnInteraction: false }} // Tự động chạy mượt mà
+                    // loop={true}
+                    // speed={1000}
+                    // autoplay={{ delay: 3000, disableOnInteraction: false }} // Tự động chạy mượt mà
                     pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]} // Kích hoạt module Pagination & Autoplay
                 >
@@ -43,7 +43,7 @@ const Slide = () => {
                         <div className="px-3">
                             <img
                                 src="https://bizweb.dktcdn.net/100/436/596/themes/980306/assets/slider_1.jpg?1739064839042"
-                                className="w-full rounded-lg object-contain"
+                                className="w-full h-[50vh] lg:h-full rounded-lg object-fill lg:object-contain"
                                 alt="Slide 1"
                             />
                         </div>
@@ -52,7 +52,7 @@ const Slide = () => {
                         <div className="px-3">
                             <img
                                 src="https://bizweb.dktcdn.net/100/436/596/themes/980306/assets/slider_3.jpg?1734244256858"
-                                className="w-full rounded-lg object-contain"
+                                className="w-full h-[50vh] lg:h-full rounded-lg object-fill lg:object-contain"
                                 alt="Slide 2"
                             />
                         </div>
@@ -61,7 +61,7 @@ const Slide = () => {
                         <div className="px-3">
                             <img
                                 src="https://bizweb.dktcdn.net/100/436/596/themes/980306/assets/slider_4.jpg?1739064839042"
-                                className="w-full rounded-lg object-contain"
+                                className="w-full h-[50vh] lg:h-full rounded-lg object-fill lg:object-contain"
                                 alt="Slide 3"
                             />
                         </div>

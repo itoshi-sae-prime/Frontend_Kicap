@@ -21,7 +21,7 @@ const ListPost = ({ data, title }) => {
                     loop={false}
                     speed={1000}
                     autoplay={{ delay: 1000, disableOnInteraction: false }}
-                    // pagination={{ clickable: true }}
+                    pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]}
                 >
                     {data?.map((item, index) => (

@@ -41,7 +41,7 @@ const NavbarMB = () => {
                         </li>
                         <li>
                             <div className="flex justify-between items-center border-b-2">
-                                <Link to="/products" onClick={() => setIsOpen(false)} className="  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                                <Link to="/keycap_bo" onClick={() => setIsOpen(false)} className="  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
                                     KeyCap Bộ
                                 </Link>
                                 <button className="mr-4" onClick={() => setIsDropdown(!isDropdown)}>
@@ -72,22 +72,22 @@ const NavbarMB = () => {
                             )}
                         </li>
                         <li>
-                            <Link to="/about" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                            <Link to="/banphimco" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
                                 Mobs Phím
                             </Link>
                         </li>
                         <li>
-                            <Link to="/contact" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                            <Link to="/modsphim" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
                                 Pre-Order
                             </Link>
                         </li>
                         <li>
-                            <Link to="/contact" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                            <Link to="/chuot" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
                                 Chuột
                             </Link>
                         </li>
                         <li>
-                            <Link to="/contact" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                            <Link to="/sanpham/all" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
                                 Sản Phẩm
                             </Link>
                             <div className="hidden group-hover:block absolute bg-white shadow-lg rounded-lg p-4 w-[250px]">
@@ -123,12 +123,12 @@ const NavbarMB = () => {
                             </div>
                         </li>
                         <li>
-                            <Link to="/contact" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                            <Link to="/blog" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
                                 Blog
                             </Link>
                         </li>
                         <li>
-                            <Link to="/contact" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                            <Link to="/gioi-thieu" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
                                 Về Kicap
                             </Link>
                         </li>
