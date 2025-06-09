@@ -2,8 +2,32 @@ import { MdNavigateNext } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGooglePlusG } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import axios from "axios";
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const user = {
+            email: email,
+            password: password,
+        };
+        try {
+            const response = await axios.post("/auth/login", user);
+
+            // ✅ Nếu login thành công
+            console.log("Login thành công:", response.data);
+            localStorage.setItem("token", response.data.accessToken);
+
+            // ✅ Ví dụ redirect tới trang chủ
+            window.location.href = "/account";
+        } catch (error) {
+            // ❌ Nếu login thất bại
+            console.error("Đăng nhập thất bại:", error.response?.data || error.message);
+            alert("Email hoặc mật khẩu không đúng!");
+        }
+    }
     return (
         <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2">
@@ -48,20 +72,26 @@ const Login = () => {
                         Email <span className="text-red-500">*</span>
                     </p>
                     <input
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full p-3 bg-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        type="text"
+                        type="email"
                         placeholder="Nhập địa chỉ Email"
+                        required
                     />
                     <p className="mb-2 mt-6 text-lg">
                         Mật Khẩu <span className="text-red-500">*</span>
                     </p>
                     <input
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className="w-full p-3 bg-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         type="password"
                         placeholder="Nhập mật khẩu"
+                        required
                     />
                     <div className="mt-8 grid place-items-center">
-                        <button className="bg-black text-white px-16 py-3 rounded-md tracking-wider text-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        <button type="submit" onClick={handleLogin} className="bg-black text-white px-16 py-3 rounded-md tracking-wider text-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">
                             ĐĂNG NHẬP
                         </button>
                         <div className="py-3 text-gray-400 text-sm hover:text-black">

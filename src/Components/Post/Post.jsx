@@ -13,7 +13,7 @@ const Post = () => {
                 }).then((res) => {
                     const filteredData = res.data.slice(4);
                     setProductPic(filteredData)
-                    console.log(filteredData)
+                    // console.log(filteredData)
                 }).catch((err) => {
                     console.log(err)
                 });

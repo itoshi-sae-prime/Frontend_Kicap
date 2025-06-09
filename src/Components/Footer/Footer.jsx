@@ -6,8 +6,8 @@ const Footer = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <footer className="w-full bg-gray-100 mt-10">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 pt-6 pb-4 mx-auto max-w-7xl px-5">
+        <footer className="w-full bg-gray-100 mt-10 ">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-6 pb-4 mx-auto  px-5 container">
                 {/* Logo và thông tin công ty */}
                 <div className="text-center p-2 bg-slate-400 text-white rounded-md">
                     <h2 className="text-3xl uppercase tracking-widest font-bold mb-6 text-center">KICAP</h2>

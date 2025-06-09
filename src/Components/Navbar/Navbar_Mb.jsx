@@ -132,6 +132,16 @@ const NavbarMB = () => {
                                 Về Kicap
                             </Link>
                         </li>
+                        <li>
+                            <Link to="/login" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                                Đăng Nhập
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/register" onClick={() => setIsOpen(false)} className="border-b-2  block py-2 px-4 tracking-wider hover:tracking-widest duration-300 rounded-lg">
+                                Đăng Ký
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 

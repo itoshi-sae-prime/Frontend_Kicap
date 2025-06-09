@@ -12,7 +12,7 @@ const ProductList = ({ apiUrl }) => {
         const getPicture = async () => {
             try {
                 const res = await axios.get(apiUrl);
-                console.log(res.data);
+                // console.log(res.data);
                 setPicture(res.data);
             } catch (err) {
                 console.error(err);

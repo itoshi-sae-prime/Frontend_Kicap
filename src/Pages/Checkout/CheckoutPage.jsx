@@ -29,13 +29,14 @@ const Checkout = () => {
         e.preventDefault();
         try {
             const response = await axios.post("orders/orderKicap", formData);
+
             console.log("Form submitted:", formData);
             alert("Đặt hàng thành công!");
+            window.location.href = "/";
         } catch (err) {
             if (err.response && err.response.status === 400) {
                 const errors = err.response.data.errors;
                 if (Array.isArray(errors)) {
-                    // Hiển thị tất cả lỗi trong alert
                     const errorMessages = errors.map(error => `• ${error.msg}`).join("\n");
                     alert("\n" + errorMessages);
                 } else {

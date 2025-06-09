@@ -7,7 +7,6 @@ import { MdOutlineLocalShipping } from "react-icons/md";
 import { PiShieldCheckFill } from "react-icons/pi";
 import { BsFillAwardFill } from "react-icons/bs";
 import { IoMdReturnLeft } from "react-icons/io";
-// import TinTuc from "../../Components/Post/TinTuc";
 import { Link, useLocation, useParams } from "react-router-dom";
 import TinTuc from "../../Components/Post/TinTuc";
 import { useDispatch, useSelector } from "react-redux";
