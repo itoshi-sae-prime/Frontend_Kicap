@@ -9,7 +9,7 @@ const Post = () => {
             try {
                 await axios({
                     method: 'GET',
-                    url: `products/v1 `,
+                    url: `https://backend-kicap.onrender.com/api/products/v1`,
                 }).then((res) => {
                     const filteredData = res.data.slice(4);
                     setProductPic(filteredData)
