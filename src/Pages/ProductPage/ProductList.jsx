@@ -23,17 +23,16 @@ const ProductList = ({ apiUrl }) => {
         getPicture();
     }, [apiUrl]);
 
-     const filteredData = [...picture].sort((a, b) => {
-        const priceA = parsePrice(a.price);
-        const priceB = parsePrice(b.price);
-    
+    const filteredData = [...picture].sort((a, b) => {
+        const priceA = Number(a.price.replace("₫", "").replace(/\./g, ""));
+        const priceB = Number(b.price.replace("₫", "").replace(/\./g, ""));
         switch (selectedOption) {
             case "az":
                 return a.name.localeCompare(b.name);
             case "za":
                 return b.name.localeCompare(a.name);
             case "new":
-                return new Date(b.created_at) - new Date(a.created_at);
+                return new Date(b.created_at) - new Date(a.created_at); // Giả sử API có `created_at`
             case "low-high":
                 return priceA - priceB;
             case "high-low":
@@ -42,7 +41,6 @@ const ProductList = ({ apiUrl }) => {
                 return 0;
         }
     });
-
 
     return (
         <div className="">
