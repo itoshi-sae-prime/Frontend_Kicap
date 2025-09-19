@@ -5,6 +5,7 @@ import Card from "../../Components/Card/Card";
 import { useOutletContext } from "react-router-dom";
 
 const ProductList = ({ apiUrl }) => {
+    console.log(apiUrl);
     const { selectedOption } = useOutletContext();
     const [loading, setLoading] = useState(true);
     const [picture, setPicture] = useState([]);
