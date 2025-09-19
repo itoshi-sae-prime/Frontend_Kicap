@@ -41,8 +41,8 @@ const Card = ({ data, sizeImg }) => {
                         <img
                           src={
                             isHovered
-                              ? (Array.isArray(data.images) && data.images[4]) || fallbackImg
-                              : (Array.isArray(data.images) && data.images[0]) || fallbackImg
+                              ? (Array.isArray(data.images) && data.images[4])
+                              : (Array.isArray(data.images) && data.images[0])
                           }
                           alt={data.title || "image"}
                         />
