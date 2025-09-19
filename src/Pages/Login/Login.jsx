@@ -14,7 +14,7 @@ const Login = () => {
             password: password,
         };
         try {
-            const response = await axios.post("/auth/login", user);
+            const response = await axios.post("https://backend-kicap.onrender.com/auth/login", user);
 
             // ✅ Nếu login thành công
             console.log("Login thành công:", response.data);
