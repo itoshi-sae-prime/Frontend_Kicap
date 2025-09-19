@@ -30,7 +30,7 @@ const Card = ({ data, sizeImg }) => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                {/* <Link to={`/${slugify(data.title)}`} state={{ category: data.category }} className="block"> */}
+                {/* <Link to={`/${slugify(item.title || item.name || "")}`} state={{ category: data.category }} className="block"> */}
                 <Link to={`/product/${slugify(data.title)}`} state={{ category: data.category }} className="block">
                     <div className={`${sizeImg} flex justify-center items-center overflow-hidden rounded-xl `}>
                         <img
