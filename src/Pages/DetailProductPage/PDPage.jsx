@@ -31,7 +31,7 @@ const PDPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`/orders/sendEvalute`, form);
+            const res = await axios.post(`https://backend-kicap.onrender.com/api/orders/sendEvalute`, form);
             console.log("Dữ liệu đã được gửi thành công:", res.data);
             const alertDiv = document.createElement("div");
             alertDiv.innerText = "✅ Đã gửi đánh giá thành công!";
@@ -72,7 +72,7 @@ const PDPage = () => {
     useEffect(() => {
         const getKeycap = async () => {
             try {
-                const res = await axios.get(`/products/${category}/${slug}`);
+                const res = await axios.get(`https://backend-kicap.onrender.com/api/products/${category}/${slug}`);
                 setKeycap(res.data);
             } catch (error) {
                 console.log("Lỗi khi lấy chi tiết sản phẩm:", error);
