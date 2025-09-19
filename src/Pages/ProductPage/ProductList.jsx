@@ -22,10 +22,18 @@ const ProductList = ({ apiUrl }) => {
         };
         getPicture();
     }, [apiUrl]);
-
+    const parsePrice = (price) => {
+      if (!price) return 0; // nếu null/undefined thì coi như 0
+      return Number(
+        String(price)               // đảm bảo luôn là string
+          .replace(/\s/g, "")       // bỏ khoảng trắng
+          .replace("₫", "")         // bỏ ký hiệu tiền
+          .replace(/\./g, "")       // bỏ dấu chấm ngăn cách
+      );
+    };
     const filteredData = [...picture].sort((a, b) => {
-        const priceA = Number(a.price.replace("₫", "").replace(/\./g, ""));
-        const priceB = Number(b.price.replace("₫", "").replace(/\./g, ""));
+        const priceA = parsePrice(a.price);
+        const priceB = parsePrice(b.price);
         switch (selectedOption) {
             case "az":
                 return a.name.localeCompare(b.name);
