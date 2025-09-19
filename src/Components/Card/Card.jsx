@@ -33,19 +33,19 @@ const Card = ({ data, sizeImg }) => {
                 {/* <Link to={`/${slugify(item.title || item.name || "")}`} state={{ category: data.category }} className="block"> */}
                 <Link to={`/product/${slugify(data.title)}`} state={{ category: data.category }} className="block">
                     <div className={`${sizeImg} flex justify-center items-center overflow-hidden rounded-xl `}>
-{/*                         <img
+                        <img
                             src={isHovered ? data.images[4] : data.images[0]}
                             alt={data.title || "Sản phẩm"}
                             className="object-cover w-full h-full transition-all  duration-500 ease-in-out transform hover:scale-105"
-                        /> */}
-                        <img
+                        />
+{/*                         <img
                           src={
                             isHovered
                               ? (Array.isArray(data.images) && data.images[4])
                               : (Array.isArray(data.images) && data.images[0])
                           }
                           alt={data.title || "image"}
-                        />
+                        /> */}
                     </div>
                 </Link>
                 <div className="mt-3 text-center relative">
