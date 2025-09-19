@@ -16,7 +16,7 @@ const Register = () => {
             confirmPassword: confirmPassword,
         }
         try {
-            const response = await axios.post("https://backend-kicap.onrender.com/auth/register", user);
+            const response = await axios.post("https://backend-kicap.onrender.com/api/auth/register", user);
             alert("Đăng ký thành công!");
             window.location.href = "/login";
             console.log("Success Resgister:", response.data);
