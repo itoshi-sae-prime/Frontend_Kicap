@@ -7,7 +7,7 @@ const TinTuc = () => {
     useEffect(() => {
         const getProductPic = async () => {
             try {
-                const res = await axios.get("posts/blog");
+                const res = await axios.get("https://backend-kicap.onrender.com/api/posts/blog");
                 // Giả sử API trả về { data: [...] }
                 const list = Array.isArray(res.data.data) ? res.data.data : [];
                 setProductPic(list);
