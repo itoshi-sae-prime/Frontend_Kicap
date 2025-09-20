@@ -13,7 +13,7 @@ const AddressBook = (prop) => {
         console.log(_id);
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`/user/mes/delete/address/${_id}`, {
+            await axios.delete(`https://backend-kicap.onrender.com/api/user/mes/delete/address/${_id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setAddress(prev => prev.filter(addr => addr._id !== _id));
