@@ -71,7 +71,7 @@ const AccountPage = () => {
             ward: selectedWardName,
         };
         try {
-            const res = await axios.post(`https://backend-kicap.onrender.com/user/update_address`, finalData, {
+            const res = await axios.post(`https://backend-kicap.onrender.com/api/user/update_address`, finalData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -89,7 +89,7 @@ const AccountPage = () => {
     useEffect(() => {
         const getUser = async () => {
             try {
-                const respone = await axios.get("https://backend-kicap.onrender.com/user/mes", {
+                const respone = await axios.get("https://backend-kicap.onrender.com/api/user/mes", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
