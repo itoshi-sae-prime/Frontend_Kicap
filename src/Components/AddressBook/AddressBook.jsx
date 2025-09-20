@@ -32,7 +32,7 @@ const AddressBook = (prop) => {
         const fetchAddresses = async () => {
             try {
                 const token = localStorage.getItem("token"); // nếu có token
-                const response = await axios.get('/user/mes/address', {
+                const response = await axios.get('https://backend-kicap.onrender.com/api/user/mes/address', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
