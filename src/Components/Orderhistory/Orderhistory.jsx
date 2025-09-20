@@ -10,7 +10,7 @@ const OrderHistory = () => {
         const fetchOrders = async () => {
             try {
                 const token = localStorage.getItem("token"); // nếu có token
-                const response = await axios.get('/user/order/email', {
+                const response = await axios.get('https://backend-kicap.onrender.com/api/user/order/email', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
