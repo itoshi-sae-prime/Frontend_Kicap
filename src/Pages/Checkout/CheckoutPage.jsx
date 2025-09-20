@@ -28,7 +28,7 @@ const Checkout = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("orders/orderKicap", formData);
+            const response = await axios.post("https://backend-kicap.onrender.com/api/orders/orderKicap", formData);
 
             console.log("Form submitted:", formData);
             alert("Đặt hàng thành công!");
