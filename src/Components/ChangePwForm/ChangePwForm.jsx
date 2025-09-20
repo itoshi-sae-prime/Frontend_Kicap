@@ -21,7 +21,7 @@ const ChangePwForm = () => {
         try {
             const token = localStorage.getItem("token"); // JWT token
             const response = await axios.post(
-                "/user/change_password",
+                "https://backend-kicap.onrender.com/api/user/change_password",
                 { oldPassword, newPassword },
                 {
                     headers: {
